@@ -4,245 +4,254 @@
 <base href="/ai-briefs/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Insight Brief - 2026-06-11</title>
+  <title>Firsthand AI Brief - 2026-06-07</title>
   <style>
     :root {
-      color-scheme: light;
-      --ink: #17202a;
-      --muted: #5b6572;
-      --line: #d9e1e8;
-      --paper: #f7f9fb;
+      --bg: #f6f7f4;
+      --ink: #17201b;
+      --muted: #647067;
+      --line: #dce2dc;
       --card: #ffffff;
-      --blue: #2f6fed;
-      --green: #16845f;
-      --amber: #a86200;
-      --red: #b23b3b;
-      --violet: #7057c7;
+      --green: #0f6b4d;
+      --blue: #285a8e;
+      --amber: #9b5a10;
+      --red: #8f3434;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--paper);
+      background: var(--bg);
       color: var(--ink);
-      line-height: 1.5;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
     }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 28px 18px 40px; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 48px; }
     header {
-      border: 1px solid var(--line);
-      background: var(--card);
-      padding: 24px;
-      border-radius: 8px;
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 20px;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
     }
-    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: 0; }
-    h2 { margin: 0 0 12px; font-size: 20px; }
-    h3 { margin: 0 0 8px; font-size: 16px; }
+    .hero, .panel, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .hero { padding: 28px; }
+    .eyebrow { color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 8px 0 10px; font-size: clamp(30px, 5vw, 56px); line-height: .98; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
     p { margin: 0 0 10px; }
-    .dek { color: var(--muted); font-size: 17px; max-width: 740px; }
-    .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-    .metric { border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: #fbfdff; }
-    .metric strong { display: block; font-size: 24px; line-height: 1.1; }
-    .metric span { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
-    .section { margin-top: 18px; }
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px;
-      min-height: 100%;
-    }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 3px 9px;
-      font-size: 12px;
-      color: var(--muted);
+    .dek { color: var(--muted); max-width: 760px; font-size: 17px; }
+    .panel { padding: 18px; }
+    .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .metric { border-top: 3px solid var(--green); padding-top: 9px; }
+    .metric strong { display: block; font-size: 28px; line-height: 1; }
+    .metric span { color: var(--muted); font-size: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 14px; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    .card { padding: 17px; min-height: 100%; }
+    .tagrow { display: flex; gap: 7px; flex-wrap: wrap; margin: 0 0 10px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; color: var(--muted); font-size: 12px; background: #fbfcfa; }
+    .tag.fact { color: var(--green); border-color: #a9cdbc; }
+    .tag.limited { color: var(--amber); border-color: #e1c28d; }
+    .tag.infer { color: var(--blue); border-color: #acc2d7; }
+    .big {
+      font-size: 24px;
+      line-height: 1.12;
+      font-weight: 760;
       margin-bottom: 10px;
-      background: #fbfdff;
     }
-    .tag.high { color: var(--green); border-color: #b9decf; }
-    .tag.medium { color: var(--amber); border-color: #ead1a9; }
-    .tag.limited { color: var(--red); border-color: #efc4c4; }
-    .tag.policy { color: var(--violet); border-color: #d5cdf1; }
-    ul { margin: 8px 0 0 18px; padding: 0; }
-    li { margin: 6px 0; }
-    .small { color: var(--muted); font-size: 13px; }
-    .summary {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    .muted { color: var(--muted); }
+    .section-title {
+      grid-column: span 12;
+      margin: 18px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
     }
-    .callout {
-      border-left: 4px solid var(--blue);
-      background: #eef4ff;
-      padding: 12px 14px;
+    .section-title:after { content: ""; height: 1px; background: var(--line); flex: 1; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 7px 0; }
+    .source-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .source-list a {
+      display: block;
+      border: 1px solid var(--line);
       border-radius: 6px;
+      padding: 9px 10px;
+      background: #fbfcfa;
+      overflow-wrap: anywhere;
     }
-    .source-list a { display: inline-block; margin: 0 8px 8px 0; }
-    .watch { border-left: 4px solid var(--amber); }
+    .note { border-left: 4px solid var(--amber); padding-left: 12px; color: #5e4a25; }
+    .confidence { margin-top: 12px; color: var(--muted); font-size: 13px; }
     @media (max-width: 860px) {
-      header, .summary, .grid, .two { grid-template-columns: 1fr; }
-      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      header { grid-template-columns: 1fr; }
+      .span-4, .span-6, .span-8 { grid-column: span 12; }
+      .source-list { grid-template-columns: 1fr; }
+      .hero { padding: 22px; }
     }
-    @media (max-width: 520px) {
-      .wrap { padding: 14px; }
-      header { padding: 18px; }
-      .metrics { grid-template-columns: 1fr; }
-    }
-  </style>
+  .lang-switch{position:fixed;top:18px;right:18px;z-index:50;display:flex;gap:4px;background:rgba(255,255,255,.86);border:1px solid var(--line,#dfe5ee);border-radius:999px;padding:4px;backdrop-filter:blur(18px);box-shadow:0 4px 18px rgba(30,42,62,.10)}.lang-switch a{border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:var(--muted,#647083);text-decoration:none}.lang-switch a.active{background:var(--blue,var(--green,#2457d6));color:#fff}@media(max-width:560px){.lang-switch{position:static;margin:14px 20px 0;display:inline-flex}}</style>
 </head>
 <body>
-  <main class="wrap">
+<nav class="lang-switch" aria-label="Language"><a class="active" href="2026-06-07-ai-brief.html">EN</a><a href="2026-06-07-ai-brief-zh.html">中文</a></nav>
+  <div class="wrap">
     <header>
-      <div>
-        <div class="tag high">Daily AI source brief</div>
-        <h1>AI moved on three fronts: faster generation, governed agents, and cloud distribution.</h1>
-        <p class="dek">The past 24 hours were less about one foundation model leap and more about deployment leverage: Google pushed diffusion-style text generation into open Gemma, OpenAI made enterprise procurement easier through Oracle Cloud, Anthropic paired fast capability growth with a heavier policy ask, and agent tooling kept moving from demos toward scheduled production work.</p>
-        <p class="small">Execution time: 2026-06-11 09:19 CST. Coverage: 2026-06-10 09:19 CST to 2026-06-11 09:19 CST.</p>
-      </div>
-      <div class="metrics" aria-label="run metrics">
-        <div class="metric"><strong>57</strong><span>Firsthand items</span></div>
-        <div class="metric"><strong>57</strong><span>Original sources</span></div>
-        <div class="metric"><strong>5</strong><span>Substantive accessible</span></div>
-        <div class="metric"><strong>52</strong><span>Limited sources</span></div>
-      </div>
+      <section class="hero">
+        <div class="eyebrow">Firsthand AI Digest - 24h interpretation</div>
+        <h1>AI moved from novelty toward operating cost and local execution.</h1>
+        <p class="dek">The June 7 window was light on formal lab releases but useful for reading the applied layer: enterprises are worrying about token spend, Perplexity is tying local models to Intel AI PCs, and builders are normalizing AI assistants as everyday workflow infrastructure.</p>
+      </section>
+      <aside class="panel">
+        <h2>Run Metadata</h2>
+        <p><strong>Execution:</strong> 2026-06-07 12:44 CST / 04:44 UTC</p>
+        <p><strong>Coverage:</strong> 2026-06-06 12:44 CST to 2026-06-07 12:44 CST</p>
+        <div class="metrics">
+          <div class="metric"><strong>10</strong><span>Digest items</span></div>
+          <div class="metric"><strong>10</strong><span>Original sources</span></div>
+          <div class="metric"><strong>8</strong><span>X posts opened via public render</span></div>
+          <div class="metric"><strong>2</strong><span>YouTube sources transcript-limited</span></div>
+        </div>
+      </aside>
     </header>
 
-    <section class="section summary">
-      <div class="card">
-        <h2>Executive Summary</h2>
-        <p><strong>Fact:</strong> Google released <a href="https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/">DiffusionGemma</a>, an Apache 2.0 open experimental 26B MoE model that generates blocks of text in parallel and claims up to 4x faster GPU inference. The model is listed on <a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it">Hugging Face</a> and <a href="https://build.nvidia.com/google/diffusiongemma-26b-a4b-it">NVIDIA NIM</a>.</p>
-        <p><strong>Fact:</strong> OpenAI announced access to OpenAI models and Codex through existing <a href="https://openai.com/index/openai-on-oracle-cloud/">Oracle Cloud commitments</a>, framing the move around enterprise security, governance, and procurement reuse.</p>
-        <p><strong>Fact:</strong> Anthropic published <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a>, proposing stronger government authority over high-risk frontier deployments and an economic framework for AI labor impacts.</p>
-        <p><strong>Analysis:</strong> The connective tissue is operationalization. Model speed, cloud purchasing, scheduled agents, and policy controls all reduce friction between frontier capability and real organizational deployment.</p>
-      </div>
-      <div class="card">
-        <h2>Access Notes</h2>
-        <p>The strongest claims in this brief are grounded in official pages, accessible blog text, public model cards, and podcast show notes. YouTube items were limited to titles, descriptions, chapters, and metadata; no reliable full transcript was available through the automated checks. X posts were treated cautiously because full threads, replies, quote context, and media were not accessible without authenticated browsing.</p>
-        <div class="callout">
-          <strong>Confidence rule:</strong> Official product, model, or policy pages are high confidence. X-only observations are signal, not proof. Video/podcast items without transcripts are used only for directional context.
-        </div>
-      </div>
-    </section>
+    <main class="grid">
+      <div class="section-title">Executive Summary</div>
+      <section class="card span-8">
+        <p class="big">The strongest signal is that AI adoption pressure is shifting from "which frontier model?" to "which model, where, and at what marginal cost?"</p>
+        <p><strong>Facts:</strong> Aaron Levie argued that token costs have become a hot enterprise topic and predicted model routing will become a differentiator for applied AI companies with strong workflow-specific evals (<a href="https://x.com/levie/status/2063320673217609936">source</a>). Aravind Srinivas said Perplexity is working with Intel to bring Personal Computer, local models, and hybrid inference to Intel Core Ultra Series 3 laptops (<a href="https://x.com/AravSrinivas/status/2063341557923901584">source</a>); Intel's own developer material frames hybrid AI as local, cloud, or combined execution for security and performance (<a href="https://www.intel.com/content/www/us/en/developer/topic-technology/ai-pc/local-first-hybrid-ai.html">Intel</a>).</p>
+        <p><strong>Analysis:</strong> The near-term opportunity is orchestration, not just raw model access: routing, local privacy boundaries, eval harnesses, and workflow-aware cost controls are becoming product features.</p>
+      </section>
+      <aside class="card span-4">
+        <h3>Source Quality</h3>
+        <p class="note">X posts were readable through public rendered pages for the main text, but replies, full quote context, and linked media were only partially accessible. YouTube videos exposed titles/descriptions and public page metadata; no reliable full transcript was available in this run.</p>
+        <p class="confidence">Overall confidence: medium for source facts, medium-low for video interpretation, high for the cross-event trend that token economics and hybrid inference are converging.</p>
+      </aside>
 
-    <section class="section">
-      <h2>Most Important Items</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="tag high">Model systems</div>
-          <h3>DiffusionGemma tests a speed-first alternative to token-by-token LLMs</h3>
-          <p><strong>Fact:</strong> Google says <a href="https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/">DiffusionGemma</a> generates blocks of text simultaneously, is built on Gemma 4 and Gemini Diffusion research, and is released under Apache 2.0. <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/">Simon Willison</a> reported a test via NVIDIA NIM that returned 2,409 tokens in 4.4 seconds.</p>
-          <p><strong>Inference:</strong> The near-term opportunity is not replacing the best reasoning models; it is latency-sensitive UX where fast draft generation matters more than peak deliberation.</p>
-          <p class="small">Confidence: high for release and availability; medium for real-world speed until independent benchmarks broaden.</p>
-        </article>
-        <article class="card">
-          <div class="tag high">Enterprise distribution</div>
-          <h3>OpenAI plus Oracle makes AI adoption a procurement path, not only an API choice</h3>
-          <p><strong>Fact:</strong> OpenAI announced customers can access OpenAI models and Codex through their <a href="https://openai.com/index/openai-on-oracle-cloud/">Oracle Cloud commitment</a>. The digest description emphasizes existing commitments, enterprise security, and governance.</p>
-          <p><strong>Analysis:</strong> This is distribution strategy. For large buyers, the decisive question is often whether AI spend fits existing cloud contracts, controls, and vendor review processes.</p>
-          <p class="small">Confidence: high on announcement existence; medium on customer impact until pricing and deployment constraints are visible.</p>
-        </article>
-        <article class="card">
-          <div class="tag policy">Policy</div>
-          <h3>Anthropic is asking for stronger government authority over frontier risk</h3>
-          <p><strong>Fact:</strong> <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Anthropic's framework</a> argues transparency alone is no longer enough for advanced AI, proposes testing, public reporting, independent evaluation, security programs, and government authority to block or deter dangerous deployments above defined compute and revenue thresholds.</p>
-          <p><strong>Analysis:</strong> The policy position is strategically timed: it follows rapid agent/model capability claims and frames AI governance around catastrophic risk plus economic disruption.</p>
-          <p class="small">Confidence: high for proposal details; uncertain for legislative adoption.</p>
-        </article>
-        <article class="card">
-          <div class="tag medium">Agent workflows</div>
-          <h3>Agent tools are moving from interactive coding toward scheduled work</h3>
-          <p><strong>Fact:</strong> The Firsthand feed captured Claude's announcement that <a href="https://x.com/claudeai/status/2064741174317924421">scheduled deployments and vault-backed environment variables</a> are in public beta for Claude Managed Agents, while dynamic workflows in Claude Code are generally available. Perplexity's Aravind Srinivas said <a href="https://x.com/AravSrinivas/status/2064775723886182427">Claude Fable 5 can be used as the orchestrator model inside Computer</a>.</p>
-          <p><strong>Analysis:</strong> The product direction is clear even with X limitations: agents are becoming schedulable infrastructure with secrets, tools, and longer-running tasks.</p>
-          <p class="small">Confidence: medium because primary evidence is X-limited; watch for docs or changelog confirmation.</p>
-        </article>
-        <article class="card">
-          <div class="tag medium">Applied research</div>
-          <h3>DeepMind's education thread points to AI as teacher support, not replacement</h3>
-          <p><strong>Fact:</strong> Google DeepMind posted that its <a href="https://x.com/GoogleDeepMind/status/2064785573852672275">latest Sierra Leone research</a> explores AI as a partner for educators in settings where student population growth outpaces teacher supply.</p>
-          <p><strong>Analysis:</strong> This is an important counterweight to pure productivity framing: high-stakes public-sector AI will need workflows that amplify scarce professionals while preserving accountability.</p>
-          <p class="small">Confidence: medium; thread text was accessible through the digest, but the full linked research context was not fully captured.</p>
-        </article>
-        <article class="card">
-          <div class="tag limited">Media and commentary</div>
-          <h3>Fable 5 remains the center of practitioner conversation</h3>
-          <p><strong>Fact:</strong> The podcast <a href="https://share.transistor.fm/s/0a738222">How Anthropic Uses Claude Fable 5 With Mike Krieger</a> published show notes around workflow changes, verification mechanics, agent-native architecture, and the cost collapse of building. A video breakdown of the Fable 5 system card was listed on <a href="https://www.youtube.com/watch?v=haK1KoQWm18">YouTube</a>.</p>
-          <p><strong>Analysis:</strong> The conversation has shifted from "can it code?" to "how do teams verify, schedule, and govern long-running work?"</p>
-          <p class="small">Confidence: medium for podcast show notes; limited for video details without transcript.</p>
-        </article>
-      </div>
-    </section>
+      <div class="section-title">Most Important Items</div>
+      <article class="card span-6">
+        <div class="tagrow"><span class="tag fact">Fact</span><span class="tag infer">Analysis</span><span class="tag">Enterprise AI</span></div>
+        <h3><a href="https://x.com/levie/status/2063320673217609936">Token costs push model routing into the applied AI layer</a></h3>
+        <p><strong>Fact:</strong> Levie says token costs are now central in enterprise conversations and that applied AI companies will differentiate by routing workflow sub-tasks to the right model.</p>
+        <p><strong>Inference:</strong> This favors vendors that own domain evals, cost observability, and task taxonomies. Generic "frontier model wrapper" products face margin pressure unless they can prove cheaper, measurable outcomes.</p>
+        <p class="confidence">Uncertainty: public post only; no survey or enterprise spending data attached.</p>
+      </article>
 
-    <section class="section">
-      <div class="grid two">
-        <div class="card">
-          <h2>Cross-Event Trend Judgments</h2>
-          <ul>
-            <li><strong>Fact:</strong> Open releases, cloud channels, and agent workflow features appeared in the same window across Google, OpenAI, Anthropic, NVIDIA, and ecosystem voices.</li>
-            <li><strong>Inference:</strong> The center of competition is shifting toward deployment loops: model speed, procurement, governance, secrets, scheduling, and verification.</li>
-            <li><strong>Analysis:</strong> Startups that treat "agent" as a chat UI will look thin. The durable layer is operational reliability around tools, state, permissions, evidence, and rollback.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Implications</h2>
-          <ul>
-            <li><strong>Developers:</strong> Test DiffusionGemma for latency-sensitive generation, but benchmark quality and failure modes before replacing autoregressive models.</li>
-            <li><strong>Startups:</strong> Build around verification and workflow closure. The strongest buyer pain is not prompt access; it is dependable task completion.</li>
-            <li><strong>Researchers:</strong> Text diffusion is again worth attention for controllable speed-quality tradeoffs, especially local and interactive workloads.</li>
-            <li><strong>Enterprise buyers:</strong> Watch procurement packaging. Oracle commitment access to OpenAI/Codex may change internal approval paths more than raw model choice.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      <article class="card span-6">
+        <div class="tagrow"><span class="tag fact">Fact</span><span class="tag infer">Analysis</span><span class="tag">AI PCs</span></div>
+        <h3><a href="https://x.com/AravSrinivas/status/2063341557923901584">Perplexity-Intel points to hybrid local/cloud inference</a></h3>
+        <p><strong>Fact:</strong> Srinivas thanked Intel and Lip-Bu Tan for work on bringing Perplexity Personal Computer with local models and hybrid inference to Intel Core Ultra Series 3 laptops. The post quotes Tan's Computex keynote thread.</p>
+        <p><strong>Analysis:</strong> Local execution is being positioned as privacy, latency, and cloud-cost relief. The developer implication is that apps may need to express tasks in a way an orchestrator can split across NPU/GPU/CPU and cloud models.</p>
+        <p class="confidence">Confidence: medium; the X post is readable, but product timelines and exact capabilities require primary product docs.</p>
+      </article>
 
-    <section class="section">
-      <div class="card watch">
-        <h2>24-72 Hour Watchlist</h2>
+      <article class="card span-4">
+        <div class="tagrow"><span class="tag fact">Fact</span><span class="tag">Developer workflow</span></div>
+        <h3><a href="https://x.com/petergyang/status/2063353542103167369">Mobile Codex use becomes a casual builder pattern</a></h3>
+        <p><strong>Fact:</strong> Peter Yang described dictating to Codex on the phone during weekend downtime.</p>
+        <p><strong>Analysis:</strong> This is a small but telling adoption marker: agentic coding is moving from IDE-only sessions into ambient voice/mobile workflows.</p>
+      </article>
+
+      <article class="card span-4">
+        <div class="tagrow"><span class="tag fact">Fact</span><span class="tag limited">Transcript limited</span><span class="tag">Games</span></div>
+        <h3><a href="https://www.youtube.com/shorts/82m7YqosdgU">AI agents as game masters</a></h3>
+        <p><strong>Fact:</strong> The Two Minute Papers short asks whether agents could drive gaming storylines and mentions dynamic, non-scripted narratives.</p>
+        <p><strong>Analysis:</strong> Treat this as a product/design signal, not a technical release. The actionable question is how studios evaluate safety, cost, latency, and authorial control for live agentic gameplay.</p>
+      </article>
+
+      <article class="card span-4">
+        <div class="tagrow"><span class="tag fact">Fact</span><span class="tag limited">Transcript limited</span><span class="tag">Economics</span></div>
+        <h3><a href="https://www.youtube.com/watch?v=85S8Byf-Ing">AI macro crash debate remains unresolved</a></h3>
+        <p><strong>Fact:</strong> Dwarkesh Clips published "Will AI Crash the Economy? Debunking Citrini" with Alex Imas and Phil Trammell, pointing to a full episode.</p>
+        <p><strong>Analysis:</strong> Without transcript access, the safe takeaway is agenda-level: AI macro risk arguments are being stress-tested publicly, but this run cannot verify the detailed claims.</p>
+      </article>
+
+      <div class="section-title">Secondary Signals</div>
+      <section class="card span-6">
+        <h3>Intelligence vs memorized competence</h3>
+        <p><strong>Fact:</strong> Francois Chollet distinguished "static competence" from adaptability in a short post (<a href="https://x.com/fchollet/status/2063350697626845639">source</a>).</p>
+        <p><strong>Analysis:</strong> In context, this reinforces the benchmark debate: systems that scale stored knowledge may still fail when tasks require transfer, active adaptation, and novelty handling.</p>
+      </section>
+      <section class="card span-6">
+        <h3>Non-core AI posts should not be over-weighted</h3>
+        <p><strong>Fact:</strong> Amjad Masad posted about VC behavior and "Vibecon" (<a href="https://x.com/amasad/status/2063344460705288401">source</a>, <a href="https://x.com/amasad/status/2063300737296400516">source</a>), while Elon Musk posted about fertility trends (<a href="https://x.com/elonmusk/status/2063333492449009867">source</a>, <a href="https://x.com/elonmusk/status/2063296176246427655">source</a>).</p>
+        <p><strong>Analysis:</strong> These are founder/media attention signals rather than direct AI product or research events. They matter only insofar as founder networks, labor-market expectations, and public narratives shape AI company strategy.</p>
+      </section>
+
+      <div class="section-title">Implications</div>
+      <section class="card span-3 span-4">
+        <h3>Developers</h3>
         <ul>
-          <li>Independent DiffusionGemma benchmarks: latency, quality, hallucination rate, GPU memory, and local serving behavior.</li>
-          <li>OpenAI Oracle Cloud details: eligible models, Codex packaging, regional availability, security boundaries, and pricing mechanics.</li>
-          <li>Claude Managed Agents documentation: schedules, secret vault semantics, permission boundaries, audit logs, and failure recovery.</li>
-          <li>Anthropic policy response: whether US lawmakers, state regulators, or rival labs endorse or contest the proposed thresholds.</li>
-          <li>Transcript availability for the Fable 5 podcast/video cluster to validate claims around verification, team workflows, and system-card interpretation.</li>
+          <li>Instrument token cost per workflow, not just per model call.</li>
+          <li>Design tasks so routing can choose local, cheap, or frontier execution.</li>
+          <li>Expect AI coding interfaces to expand into voice and mobile contexts.</li>
         </ul>
-      </div>
-    </section>
+      </section>
+      <section class="card span-4">
+        <h3>Startups</h3>
+        <ul>
+          <li>Domain evals and routing policies are defensible product assets.</li>
+          <li>Hybrid local/cloud is a wedge for privacy-sensitive verticals.</li>
+          <li>Do not sell agentic features without measurable cost and quality controls.</li>
+        </ul>
+      </section>
+      <section class="card span-4">
+        <h3>Researchers</h3>
+        <ul>
+          <li>Adaptability remains a separate axis from knowledge scale.</li>
+          <li>Game agents need evaluation beyond reward maximization: narrative quality, control, safety, and player trust.</li>
+          <li>Macro-AI claims need stronger empirical grounding before operational decisions.</li>
+        </ul>
+      </section>
+      <section class="card span-4">
+        <h3>Enterprise Buyers</h3>
+        <ul>
+          <li>Ask vendors for routing logic, eval evidence, and cost attribution.</li>
+          <li>Test local inference claims against real privacy, latency, and admin constraints.</li>
+          <li>Budget for orchestration and governance, not just model subscriptions.</li>
+        </ul>
+      </section>
 
-    <section class="section">
-      <div class="card">
-        <h2>Source Links</h2>
-        <p class="source-list">
-          <a href="https://ai.prov1dence.top/">Firsthand AI Digest</a>
-          <a href="https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/">Google DiffusionGemma</a>
-          <a href="https://huggingface.co/google/diffusiongemma-26B-A4B-it">DiffusionGemma model card</a>
-          <a href="https://build.nvidia.com/google/diffusiongemma-26b-a4b-it">NVIDIA NIM model page</a>
-          <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/">Simon Willison test note</a>
-          <a href="https://openai.com/index/openai-on-oracle-cloud/">OpenAI on Oracle Cloud</a>
-          <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Anthropic policy essay</a>
-          <a href="https://share.transistor.fm/s/0a738222">AI & I podcast notes</a>
-          <a href="https://www.youtube.com/watch?v=haK1KoQWm18">Fable 5 video</a>
-          <a href="https://www.youtube.com/watch?v=2ey7znf8SI0">Codex campaign video</a>
-          <a href="https://www.youtube.com/watch?v=8Oz64pGwRk4">Build Small with Modal</a>
-          <a href="https://www.youtube.com/watch?v=6moc2tDRGy0">Dwarkesh clip</a>
-          <a href="https://x.com/GoogleDeepMind/status/2064785573852672275">DeepMind education thread</a>
-          <a href="https://x.com/claudeai/status/2064741174317924421">Claude Managed Agents post</a>
-          <a href="https://x.com/AravSrinivas/status/2064775723886182427">Perplexity Computer post</a>
-          <a href="https://x.com/xai/status/2064777588036530309">xAI Grok Voice post</a>
-          <a href="https://x.com/GoogleLabs/status/2064801929339752527">Project Genie access post</a>
-        </p>
-        <p class="small">Generated from the 24-hour Firsthand AI Digest window and original-source checks. X and YouTube access was intentionally treated as limited unless full context was available.</p>
-      </div>
-    </section>
-  </main>
+      <div class="section-title">24-72 Hour Watchlist</div>
+      <section class="card span-8">
+        <ul>
+          <li>Perplexity or Intel follow-up docs on Personal Computer, supported Series 3 SKUs, local models, routing policy, and availability.</li>
+          <li>More enterprise posts or product launches around model routing, eval-driven orchestration, and token-cost dashboards.</li>
+          <li>Transcript or full-episode availability for the Dwarkesh economic-risk discussion to verify the "Debunking Citrini" arguments.</li>
+          <li>Game-agent demos that move from concept clips to measurable gameplay systems.</li>
+        </ul>
+      </section>
+      <section class="card span-4">
+        <h3>Trend Judgment</h3>
+        <p>The applied AI layer is starting to look like a control plane: it chooses models, venues, cost bands, and privacy boundaries. Winners will likely combine evals, routing, and user-context integration rather than relying on one model provider.</p>
+      </section>
+
+      <div class="section-title">Original Sources</div>
+      <section class="card span-12">
+        <div class="source-list">
+          <a href="https://www.youtube.com/watch?v=85S8Byf-Ing">Dwarkesh Clips - Will AI Crash the Economy?</a>
+          <a href="https://www.youtube.com/shorts/82m7YqosdgU">Two Minute Papers - AI Agents as Game Masters</a>
+          <a href="https://x.com/petergyang/status/2063353542103167369">Peter Yang - mobile Codex workflow</a>
+          <a href="https://x.com/fchollet/status/2063350697626845639">Francois Chollet - adaptability vs knowledge</a>
+          <a href="https://x.com/amasad/status/2063344460705288401">Amjad Masad - VC/founder network post</a>
+          <a href="https://x.com/AravSrinivas/status/2063341557923901584">Aravind Srinivas - Perplexity and Intel hybrid inference</a>
+          <a href="https://x.com/elonmusk/status/2063333492449009867">Elon Musk - fertility commentary / WSJ card</a>
+          <a href="https://x.com/levie/status/2063320673217609936">Aaron Levie - token costs and model routing</a>
+          <a href="https://x.com/amasad/status/2063300737296400516">Amjad Masad - Vibecon post</a>
+          <a href="https://x.com/elonmusk/status/2063296176246427655">Elon Musk - India fertility commentary</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
