@@ -23,10 +23,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p _site
+          cp index.html CNAME _site/
+          cp -R archive _site/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .
+          path: _site
 
       - id: deployment
         uses: actions/deploy-pages@v5

@@ -1,0 +1,8 @@
+# Pre-publish brief drafts from automation
+staging/
+
+# Local Pages build scratch
+_site/
+
+# OS / editor
+.DS_Store
